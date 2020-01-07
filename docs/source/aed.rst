@@ -1,12 +1,12 @@
-Tutorial
-^^^^^^^^
+Audio Event Detection
+^^^^^^^^^^^^^^^^^^^^^
 
-This section covers how to use *Deeply API*.
+This section covers how to use *Audio Event Detection API*.
 
 
-Quickstart
-==================
-You can query *Deeply API* with any HTTP client. We'll show you how to send HTTP request using Python.
+Quick Start
+===========
+You can query *Audio Event Detection API* with any HTTP client. We'll show you how to send HTTP request using Python.
 
 .. code-block:: python
     :linenos:
@@ -50,4 +50,6 @@ What you should pay attention to are *floatVal* and *tensorShape*.
 * *floatVal*: Probability of Cry Event Detection based on given dataset.
 * *tensorShape*: Result tensor shape.
 
-***Notice***
+***Notice*** Currently you should only pass one dataset with shape (1, 16000), otherwise API fails and returns HTTP status code 500.
+
+The API preprocess the audio data from client, so just provide raw audio data with proper shape. If you preprocess yourself, incorrect inference may occurs frequently. 

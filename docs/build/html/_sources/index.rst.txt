@@ -7,9 +7,10 @@ Deeply API
 ======================================
 This is Deeply's audio event detection API document
 
-Getting started
----------------
+API documentation
+-----------------
 .. toctree::
     :maxdepth: 1
 
-    tutorial
+    aed
+    bsc

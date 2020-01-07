@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tutorial &mdash; Deeply API 1.0 documentation</title>
+  <title>Audio Event Detection &mdash; Deeply API 1.0 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Audio Event Detection" href="bsc.html" />
     <link rel="prev" title="Deeply API" href="index.html" /> 
 </head>
 
@@ -80,10 +81,11 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#quickstart">Quickstart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Audio Event Detection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="bsc.html">Audio Event Detection</a></li>
 </ul>
 
             
@@ -129,13 +131,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Tutorial</li>
+      <li>Audio Event Detection</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/aed.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -148,12 +150,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="tutorial">
-<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
-<p>This section covers how to use <em>Deeply API</em>.</p>
-<div class="section" id="quickstart">
-<h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
-<p>You can query <em>Deeply API</em> with any HTTP client. We’ll show you how to send HTTP request using Python.</p>
+  <div class="section" id="audio-event-detection">
+<h1>Audio Event Detection<a class="headerlink" href="#audio-event-detection" title="Permalink to this headline">¶</a></h1>
+<p>This section covers how to use <em>Audio Event Detection API</em>.</p>
+<div class="section" id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
+<p>You can query <em>Audio Event Detection API</em> with any HTTP client. We’ll show you how to send HTTP request using Python.</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -225,7 +227,8 @@ What you should pay attention to are <em>floatVal</em> and <em>tensorShape</em>.
 <li><p><em>floatVal</em>: Probability of Cry Event Detection based on given dataset.</p></li>
 <li><p><em>tensorShape</em>: Result tensor shape.</p></li>
 </ul>
-<p><strong>*Notice*</strong></p>
+<p><strong>*Notice*</strong> Currently you should only pass one dataset with shape (1, 16000), otherwise API fails and returns HTTP status code 500.</p>
+<p>The API preprocess the audio data from client, so just provide raw audio data with proper shape. If you preprocess yourself, incorrect inference may occurs frequently.</p>
 </div>
 </div>
 
@@ -236,6 +239,8 @@ What you should pay attention to are <em>floatVal</em> and <em>tensorShape</em>.
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bsc.html" class="btn btn-neutral float-right" title="Audio Event Detection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Deeply API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

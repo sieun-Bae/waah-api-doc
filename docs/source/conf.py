@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'my_package'
+project = 'Deeply API'
 copyright = '2020, Deeply dev team'
 author = 'Deeply dev team'
 

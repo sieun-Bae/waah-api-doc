@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tutorial &mdash; Deeply API 1.0 documentation</title>
+  <title>Baby-crying state classification &mdash; Deeply API 1.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Deeply API" href="index.html" /> 
+    <link rel="prev" title="Audio Event Detection" href="aed.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -80,8 +80,9 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#quickstart">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aed.html">Audio Event Detection</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Baby-crying state classification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a></li>
 </ul>
 </li>
 </ul>
@@ -129,13 +130,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Tutorial</li>
+      <li>Baby-crying state classification</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/bsc.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -148,12 +149,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="tutorial">
-<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
-<p>This section covers how to use <em>Deeply API</em>.</p>
-<div class="section" id="quickstart">
-<h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
-<p>You can query <em>Deeply API</em> with any HTTP client. We’ll show you how to send HTTP request using Python.</p>
+  <div class="section" id="baby-crying-state-classification">
+<h1>Baby-crying state classification<a class="headerlink" href="#baby-crying-state-classification" title="Permalink to this headline">¶</a></h1>
+<p>This section covers how to use <em>Baby-crying state classification API</em>.</p>
+<div class="section" id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
+<p>You can query <em>Baby-crying state classification API</em> with any HTTP client. We’ll show you how to send HTTP request using Python.</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -185,47 +186,54 @@
 29
 30
 31
-32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+32
+33
+34
+35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
 
-<span class="n">raw_audio_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16000</span><span class="p">)]</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;https://api.deeplycorp.com/aed&#39;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;audio&quot;</span><span class="p">:</span> <span class="n">raw_audio_data</span><span class="p">})</span>
+<span class="n">raw_audio_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16000</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)]</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;https://api.deeplycorp.com/bsc&#39;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;audio&quot;</span><span class="p">:</span> <span class="n">raw_audio_data</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 
-<span class="c1">#   {</span>
-<span class="c1">#       &quot;modelSpec&quot;: {</span>
-<span class="c1">#           &quot;signatureName&quot;: &quot;serving_default&quot;,</span>
-<span class="c1">#           &quot;version&quot;: &quot;5&quot;,</span>
-<span class="c1">#           &quot;name&quot;: &quot;AED&quot;</span>
-<span class="c1">#       },</span>
-<span class="c1">#       &quot;outputs&quot;: {</span>
-<span class="c1">#           &quot;outputs&quot;: {</span>
-<span class="c1">#               &quot;floatVal&quot;: [</span>
-<span class="c1">#                   0.00034675668575800955</span>
-<span class="c1">#               ],</span>
-<span class="c1">#               &quot;dtype&quot;: &quot;DT_FLOAT&quot;,</span>
-<span class="c1">#               &quot;tensorShape&quot;: {</span>
-<span class="c1">#                   &quot;dim&quot;: [</span>
-<span class="c1">#                       {</span>
-<span class="c1">#                           &quot;size&quot;: &quot;1&quot;</span>
-<span class="c1">#                       },</span>
-<span class="c1">#                       {</span>
-<span class="c1">#                           &quot;size&quot;: &quot;1&quot;</span>
-<span class="c1">#                       }</span>
-<span class="c1">#                   ]</span>
-<span class="c1">#               }</span>
+<span class="c1"># {</span>
+<span class="c1">#   &quot;outputs&quot;: {</span>
+<span class="c1">#     &quot;outputs&quot;: {</span>
+<span class="c1">#       &quot;tensorShape&quot;: {</span>
+<span class="c1">#         &quot;dim&quot;: [</span>
+<span class="c1">#           {</span>
+<span class="c1">#             &quot;size&quot;: &quot;1&quot;</span>
+<span class="c1">#           },</span>
+<span class="c1">#           {</span>
+<span class="c1">#             &quot;size&quot;: &quot;4&quot;</span>
 <span class="c1">#           }</span>
-<span class="c1">#       }</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       },</span>
+<span class="c1">#       &quot;dtype&quot;: &quot;DT_FLOAT&quot;,</span>
+<span class="c1">#       &quot;floatVal&quot;: [</span>
+<span class="c1">#         0.5540047287940979,</span>
+<span class="c1">#         0.037925444543361664,</span>
+<span class="c1">#         0.08041844516992569,</span>
+<span class="c1">#         0.32765132188796997</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     }</span>
+<span class="c1">#   },</span>
+<span class="c1">#   &quot;modelSpec&quot;: {</span>
+<span class="c1">#     &quot;signatureName&quot;: &quot;serving_default&quot;,</span>
+<span class="c1">#     &quot;version&quot;: &quot;1&quot;,</span>
+<span class="c1">#     &quot;name&quot;: &quot;bsc&quot;</span>
 <span class="c1">#   }</span>
+<span class="c1"># }</span>
 </pre></div>
 </td></tr></table></div>
-<p>The response above shows JSON result of Cry Event Detection. This JSON schema follows <a class="reference external" href="https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto">Tensorflow Serving API’s proto</a>.
+<p>The response above shows JSON result of Baby-crying state classification. This JSON schema follows <a class="reference external" href="https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto">Tensorflow Serving API’s proto</a>.
 What you should pay attention to are <em>floatVal</em> and <em>tensorShape</em>.</p>
 <ul class="simple">
-<li><p><em>floatVal</em>: Probability of Cry Event Detection based on given dataset.</p></li>
+<li><p><em>floatVal</em>: Probability of Baby-crying state classification based on given dataset.</p></li>
 <li><p><em>tensorShape</em>: Result tensor shape.</p></li>
 </ul>
-<p><strong>*Notice*</strong></p>
+<p><strong>*Notice*</strong> Currently you should only pass one dataset with shape (1, 16000), otherwise API fails and returns HTTP status code 500.</p>
+<p>The API preprocess the audio data from client, so just provide raw audio data with proper shape. If you preprocess yourself, incorrect inference may occurs frequently.</p>
 </div>
 </div>
 
@@ -238,7 +246,7 @@ What you should pay attention to are <em>floatVal</em> and <em>tensorShape</em>.
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Deeply API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="aed.html" class="btn btn-neutral float-left" title="Audio Event Detection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
