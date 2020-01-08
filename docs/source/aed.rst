@@ -52,4 +52,9 @@ What you should pay attention to are *floatVal* and *tensorShape*.
 
 ***Notice*** Currently you should only pass one dataset with shape (1, 16000), otherwise API fails and returns HTTP status code 500.
 
-The API preprocess the audio data from client, so just provide raw audio data with proper shape. If you preprocess yourself, incorrect inference may occurs frequently. 
+* (1, 16000) means 1 seconds, 16000Hz sampling rate.
+
+Our training data is configured closely with packed baby-cries. If you want accurate results, prepare 1-second audio data, full of baby cries.
+
+The API preprocess the audio data from client itself, so just provide raw audio data with proper shape.
+If you preprocess yourself, incorrect inference may occurs frequently. 
