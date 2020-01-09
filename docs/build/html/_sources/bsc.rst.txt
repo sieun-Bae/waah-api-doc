@@ -15,7 +15,7 @@ You can query *Baby-crying state classification API* with any HTTP client. We'll
     from random import randint
 
     raw_audio_data = [randint(1, 100) for _ in range(16000 * 30)]
-    res = requests.post('https://api.deeplycorp.com/bsc', data={"audio": raw_audio_data})
+    res = requests.post('https://api.deeplycorp.com/bsc', json={"audio": raw_audio_data})
     print(res.text)
 
     # {
