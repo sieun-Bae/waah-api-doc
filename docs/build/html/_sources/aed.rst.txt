@@ -54,7 +54,7 @@ What you should pay attention to are *floatVal* and *tensorShape*.
 
 * (1, 16000) means 1 seconds, 16000Hz sampling rate.
 
-Our training data is configured with closely packed baby cries. If you want accurate results, prepare 1-second audio data, full of baby cries.
+Our training data is configured closely with packed baby-cries. If you want accurate results, prepare 1-second audio data, full of baby cries.
 
 The API preprocess the audio data from client itself, so just provide raw audio data with proper shape.
 If you preprocess yourself, incorrect inference may occurs frequently. 
